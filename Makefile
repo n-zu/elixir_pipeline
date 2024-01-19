@@ -17,7 +17,11 @@ _common_folders:
 	mkdir -p shared/output
 .PHONY: _common_folders
 
-setup: _script_permissions _common_folders
+_duplicate_input:
+	chmod +x ./shared/duplicate_image.sh
+	cd shared && ./duplicate_image.sh
+
+setup: _script_permissions _common_folders _duplicate_input
 
 deploy_local:
 	FORMAT_WORKER_REPLICAS=$(FORMAT_WORKER_REPLICAS) \
@@ -50,10 +54,9 @@ clean_local_deploy: setup
 			fi \
 		done
 	@echo "All services are up and running."
+	sleep 2
 
 iex: clean_local_deploy manager_iex
-
-run: clean_local_deploy manager_run_ip
 
 worker_iex:
 	@if [ -z "$(num)" ]; then \

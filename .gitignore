@@ -39,7 +39,10 @@ compilation/format_worker/
 compilation/resolution_worker/
 compilation/size_worker/
 *.jar
-shared/
+shared/formatted/
+shared/scaled/
+shared/output/
+shared/input/_*
 
 imag*/
 birds*/

@@ -60,7 +60,6 @@ The pipeline is starts on a data source that send work to stages of workers, eac
     - `make clean_local_deploy` will remove old containers and deploy the system, waiting for the services to be ready.
     - `make manager_iex` will open an iex session on the manager node.
   - Run `DistributedPipeline.main` (on iex) to start the pipeline.
-    > `make run` deploys and runs the system directly, but can fail.
 
 > You might find unused logging capabilities in the code.
 > These are left from the original project where some metrics are logged using statsd.
